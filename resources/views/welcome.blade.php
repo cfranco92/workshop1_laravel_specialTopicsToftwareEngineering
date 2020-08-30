@@ -1,83 +1,35 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+@extends('layouts.master')
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 mx-auto">
-                    <div class="card border-0 shadow">
-                        <div class="card-body">
-                            @if($errors->any())
-                            <div class="alert alert-danger">
-                                @foreach($errors->all() as $error)
-                                    - {{ $error }} <br>
-                                @endforeach
-                            </div>
-                            @endif
+{{-- @section("title", $data["title"]) --}}
+@section("title")
 
-                            <form action="{{ route('users.store') }}" method="POST">
-                                <div class="form-row">
-                                    <div class="col-sm-3">
-                                        <input type="text" name="name" class="form-control" placeholder="Name" value="{{ old('name') }}">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="text" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <input type="password" name="password" class="form-control" placeholder="Password">
-                                    </div>
-                                    <div class="col-auto">
-                                        @csrf
-                                        <button type="submit" class="btn btn-primary">Send</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+@section('content')
+<div class="flex-center position-ref full-height">
+    @if (Route::has('login'))
+        <div class="top-right links">
+            @auth
+                <a href="{{ url('/home') }}">Home</a>
+            @else
+                <a href="{{ route('login') }}">Login</a>
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>&nbsp;</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($users as $user)
-                            <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>
-                                    <form action="{{ route('users.destroy', $user) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <input
-                                            type="submit"
-                                            value="Delete"
-                                            class="btn btn-danger btn-sm"
-                                            onclick="return confirm('Do you want to delete it?...')">
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}">Register</a>
+                @endif
+            @endauth
         </div>
-    </body>
-</html>
+    @endif
+
+    <div class="content">
+        <div class="title m-b-md">
+            Cristian Franco Bedoya
+        </div>
+
+        <div class="links">
+            <a href="{{ route('users.index') }}">Users</a>
+            <a href="{{ route('users.create') }}">Create User</a>
+        </div>
+    </div>
+</div>
+@endsection

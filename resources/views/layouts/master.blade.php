@@ -8,6 +8,9 @@
 
     <title>@yield('title','Home Page')</title> 
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
     <!-- Styles -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
@@ -20,9 +23,12 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         {{-- <nav class="navbar navbar-light bg-white shadow-sm"> --}}
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home.index')}}">
+                <a class="navbar-brand" href="/">
                     {{ config('app.name', 'Laravel')}}
                 </a>
+                {{-- <a class="navbar-brand" href="{{ route('home.index')}}">
+                    {{ config('app.name', 'Laravel')}}
+                </a> --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -31,8 +37,10 @@
                     <ul class="navbar-nav mr-auto">
                         <!-- Future authentication Links -->
                         <ul>
-                            <a href="{{ route('product.show',['id'=>'121']) }}">Product</a>
-                            <a href=" {{ route('product.create') }}">Create</a>
+                            <a href="{{ route('users.index') }}">Users</a>
+                        </ul>
+                        <ul>
+                            <a href="{{ route('users.create') }}">Create User</a>
                         </ul>
                     </ul>
 
