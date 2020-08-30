@@ -11,7 +11,7 @@ class UserController extends Controller
     {
         $users = User::latest()->get();
 
-        return view('welcome', [
+        return view('users.index', [
             'users' => $users
         ]);
     }
