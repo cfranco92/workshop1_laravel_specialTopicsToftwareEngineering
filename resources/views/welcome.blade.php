@@ -27,8 +27,8 @@
         </div>
 
         <div class="links">
-            <a href="{{ route('users.index') }}">Users</a>
-            <a href="{{ route('users.create') }}">Create User</a>
+            <a href="{{ route('user.index') }}">Users</a>
+            <a href="{{ route('user.create') }}">Create User</a>
         </div>
     </div>
 </div>

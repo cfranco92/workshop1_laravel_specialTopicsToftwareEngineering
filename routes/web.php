@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/users/list', 'UserController@index')->name('users.index');
-Route::get('/users/create', 'UserController@create')->name('users.create');
+Route::get('/user/list', 'UserController@index')->name('user.index');
+Route::get('/user/create', 'UserController@create')->name('user.create');
+Route::get('/user/show/{id}', 'UserController@show' )->name("user.show");
 Route::post('users', 'UserController@store')->name('users.store');
-Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
+Route::delete('user/{user}', 'UserController@destroy')->name('user.destroy');

@@ -24,15 +24,7 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>
-                            <form action="{{ route('users.destroy', $user) }}" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <input
-                                    type="submit"
-                                    value="Delete"
-                                    class="btn btn-danger btn-sm"
-                                    onclick="return confirm('Do you want to delete it?...')">
-                            </form>
+                            <a href="{{ route('user.show',['id'=>$user->id]) }}">VIEW</a>
                         </td>
                     </tr>
                     @endforeach

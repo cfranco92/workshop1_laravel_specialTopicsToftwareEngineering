@@ -37,10 +37,10 @@
                     <ul class="navbar-nav mr-auto">
                         <!-- Future authentication Links -->
                         <ul>
-                            <a href="{{ route('users.index') }}">Users</a>
+                            <a href="{{ route('user.index') }}">Users</a>
                         </ul>
                         <ul>
-                            <a href="{{ route('users.create') }}">Create User</a>
+                            <a href="{{ route('user.create') }}">Create User</a>
                         </ul>
                     </ul>
 

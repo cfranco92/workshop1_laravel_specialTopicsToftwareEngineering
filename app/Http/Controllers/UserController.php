@@ -11,13 +11,23 @@ class UserController extends Controller
     {
         $users = User::latest()->get();
 
-        return view('users.index', [
+        return view('user.index', [
             'users' => $users
         ]);
     }
 
+    public function show($id) {
+        $data = []; //to be sent to the view
+
+        $user = User::findOrFail($id);
+
+        $data["title"] = $user->getName();
+        $data["user"] = $user;
+        return view('user.show')->with("data",$data);
+    }
+
     public function create() {
-        return view('users.create');
+        return view('user.create');
     }
 
 
@@ -40,6 +50,8 @@ class UserController extends Controller
     public function destroy(User $user) {
         $user->delete();
 
-        return back();
+        // return back();
+        return redirect()->route('user.index');
+
     }
 }
