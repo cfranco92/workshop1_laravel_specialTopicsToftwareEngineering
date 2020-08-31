@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// User routes
 Route::get('/user/list', 'UserController@index')->name('user.index');
 Route::get('/user/create', 'UserController@create')->name('user.create');
 Route::get('/user/show/{id}', 'UserController@show' )->name("user.show");

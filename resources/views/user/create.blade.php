@@ -27,6 +27,7 @@
                                 <input type="text" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
                             </div>
                         </div>
+                        <br>
                         <div class="form-row">
                             <div class="col-sm-3">
                                 <input type="password" name="password" class="form-control" placeholder="Password">
@@ -35,11 +36,13 @@
                                 <input type="text" name="city" class="form-control" placeholder="City" value="{{ old('city') }}">
                             </div>
                         </div>
+                        <br>
                         <div class="form-row">
                             <div class="col-sm-4">
                                 <input type="text" name="phone" class="form-control" placeholder="Phone" value="{{ old('phone') }}">
                             </div>
                         </div>
+                        <br><br>
                         <div class="form-row center">
                             <div class="col-auto">
                                 @csrf
