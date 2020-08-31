@@ -11,18 +11,24 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Icon</th>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Phone</th>
+                        <th>City</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($users as $user)
                     <tr>
-                        <td>{{ $user->id }}</td>
+                        <td><img src="{{ $user->icon }}" alt="User icon" style="width:25px;height:25px;"></td>
+                        <td><a href="{{ route('user.show',['id'=>$user->id]) }}">{{ $user->id }}</a></td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
+                        <td>{{ $user->phone }}</td>
+                        <td>{{ $user->city }}</td>
                         <td>
                             <a href="{{ route('user.show',['id'=>$user->id]) }}">VIEW</a>
                         </td>
