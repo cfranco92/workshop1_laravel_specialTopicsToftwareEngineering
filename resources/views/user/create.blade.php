@@ -7,6 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-8 mx-auto">
+            @include('util.message')
             <div class="card border-0 shadow">
                 <div class="card-body">
                     @if($errors->any())

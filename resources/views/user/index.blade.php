@@ -15,22 +15,26 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Phone</th>
-                        <th>City</th>
+                        {{-- <th>Phone</th>
+                        <th>City</th> --}}
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($users as $user)
+                    @foreach($users as $index=>$user)
                     <tr>
                         <td><img src="{{ $user->icon }}" alt="User icon" style="width:25px;height:25px;"></td>
-                        <td><a href="{{ route('user.show',['id'=>$user->id]) }}">{{ $user->id }}</a></td>
+                        @if ($index < 2)
+                            <td><b><a href="{{ route('user.show',['id'=>$user->id]) }}">{{ $user->id }}</a></b></td>
+                        @else
+                            <td><a href="{{ route('user.show',['id'=>$user->id]) }}">{{ $user->id }}</a></td>
+                        @endif
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->phone }}</td>
-                        <td>{{ $user->city }}</td>
+                        {{-- <td>{{ $user->phone }}</td>
+                        <td>{{ $user->city }}</td> --}}
                         <td>
-                            <a href="{{ route('user.show',['id'=>$user->id]) }}">VIEW</a>
+                            <a href="{{ route('user.show',['id'=>$user->id]) }}" class="btn btn-primary btn-sm">VIEW</a>
                         </td>
                     </tr>
                     @endforeach

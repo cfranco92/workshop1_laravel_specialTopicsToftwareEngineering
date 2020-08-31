@@ -9,7 +9,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::latest()->get();
+        // $users = User::latest()->get();
+        $users = User::all();
 
         return view('user.index', [
             'users' => $users
@@ -20,9 +21,10 @@ class UserController extends Controller
         $data = []; //to be sent to the view
 
         $user = User::findOrFail($id);
-
+        
         $data["title"] = $user->getName();
         $data["user"] = $user;
+        
         return view('user.show')->with("data",$data);
     }
 
@@ -49,7 +51,7 @@ class UserController extends Controller
             'icon' => "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png"
         ]);
 
-        return back();
+        return back()->with('success','Item created successfully!');
     }
 
     public function destroy(User $user) {

@@ -24,7 +24,8 @@
         {{-- <nav class="navbar navbar-light bg-white shadow-sm"> --}}
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    {{ config('app.name', 'Laravel')}}
+                    {{-- {{ config('app.name', 'Laravel')}} --}}
+                    HOME
                 </a>
                 {{-- <a class="navbar-brand" href="{{ route('home.index')}}">
                     {{ config('app.name', 'Laravel')}}
@@ -37,10 +38,10 @@
                     <ul class="navbar-nav mr-auto">
                         <!-- Future authentication Links -->
                         <ul>
-                            <a href="{{ route('user.index') }}">Users</a>
+                            <a href="{{ route('user.create') }}">Create User</a>
                         </ul>
                         <ul>
-                            <a href="{{ route('user.create') }}">Create User</a>
+                            <a href="{{ route('user.index') }}">User List</a>
                         </ul>
                     </ul>
 
